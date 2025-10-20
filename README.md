@@ -10,5 +10,5 @@
 </div> 
 
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Dancing+Script&size=45&duration=3500&pause=999999&color=6E93B5&center=true&vCenter=true&random=false&width=500&height=60&lines=Suman+Ezhumalai" alt="Suman Ezhumalai" />
+  <img src="https://readme-typing-svg.demolab.com?font=Dancing+Script&size=45&duration=3500&pause=999999&color=6E93B5&center=true&vCenter=true&random=false&width=500&height=60&lines=Suman+Ezhumalai" alt="Suman Ezhumalai " />
 </div> 
