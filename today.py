@@ -10,9 +10,15 @@ import hashlib
 # Account permissions: read:Followers, read:Starring, read:Watching
 # Repository permissions: read:Commit statuses, read:Contents, read:Issues, read:Metadata, read:Pull Requests
 # Issues and pull requests permissions not needed at the moment, but may be used in the future
-ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN') or os.environ.get('GITHUB_TOKEN') or ''
-HEADERS = {'authorization': 'token ' + ACCESS_TOKEN} if ACCESS_TOKEN else {}
+ACCESS_TOKEN = os.environ.get('ACCESS_TOKEN') or ''
+GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN') or ''
 USER_NAME = os.environ.get('USER_NAME') or os.environ.get('GITHUB_REPOSITORY_OWNER') or 'thywisdom'
+
+def get_headers():
+    token = ACCESS_TOKEN or GITHUB_TOKEN
+    return {'authorization': 'token ' + token} if token else {}
+
+HEADERS = get_headers()
 QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'loc_query': 0}
 
 
@@ -44,8 +50,15 @@ def format_plural(unit):
 def simple_request(func_name, query, variables):
     """
     Returns a request, or raises an Exception if the response does not succeed.
+    Retries automatically with GITHUB_TOKEN if ACCESS_TOKEN returns 401/403.
     """
+    global HEADERS
     request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
+    if request.status_code in (401, 403) and GITHUB_TOKEN and HEADERS.get('authorization') != ('token ' + GITHUB_TOKEN):
+        print(f"WARNING: ACCESS_TOKEN returned status {request.status_code} (Unauthorized). Falling back to GITHUB_TOKEN.")
+        HEADERS = {'authorization': 'token ' + GITHUB_TOKEN}
+        request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
+
     if request.status_code == 200:
         res_json = request.json()
         if 'errors' in res_json:
@@ -114,6 +127,7 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
     """
     Uses GitHub's GraphQL v4 API and cursor pagination to fetch 100 commits from a repository at a time
     """
+    global HEADERS
     query_count('recursive_loc')
     query = '''
     query ($repo_name: String!, $owner: String!, $cursor: String) {
@@ -149,6 +163,11 @@ def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, delet
     }'''
     variables = {'repo_name': repo_name, 'owner': owner, 'cursor': cursor}
     request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS) # I cannot use simple_request(), because I want to save the file before raising Exception
+    if request.status_code in (401, 403) and GITHUB_TOKEN and HEADERS.get('authorization') != ('token ' + GITHUB_TOKEN):
+        print(f"WARNING: ACCESS_TOKEN returned status {request.status_code} in recursive_loc. Falling back to GITHUB_TOKEN.")
+        HEADERS = {'authorization': 'token ' + GITHUB_TOKEN}
+        request = requests.post('https://api.github.com/graphql', json={'query': query, 'variables':variables}, headers=HEADERS)
+
     if request.status_code == 200:
         if request.json()['data']['repository']['defaultBranchRef'] != None: # Only count commits if repo isn't empty
             return loc_counter_one_repo(owner, repo_name, data, cache_comment, request.json()['data']['repository']['defaultBranchRef']['target']['history'], addition_total, deletion_total, my_commits)
