@@ -1,0 +1,236 @@
+2026-07-24T10:39:56.6451716Z Current runner version: '2.336.0'
+2026-07-24T10:39:56.6486640Z ##[group]Runner Image Provisioner
+2026-07-24T10:39:56.6487911Z Hosted Compute Agent
+2026-07-24T10:39:56.6488554Z Version: 20260707.563
+2026-07-24T10:39:56.6489286Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-24T10:39:56.6490057Z Build Date: 2026-07-07T19:33:50Z
+2026-07-24T10:39:56.6490781Z Worker ID: {cfe3a4e8-508a-44b1-ad92-b4245f8f21a6}
+2026-07-24T10:39:56.6491519Z Azure Region: eastus
+2026-07-24T10:39:56.6492140Z ##[endgroup]
+2026-07-24T10:39:56.6493713Z ##[group]Operating System
+2026-07-24T10:39:56.6494352Z Ubuntu
+2026-07-24T10:39:56.6494934Z 24.04.4
+2026-07-24T10:39:56.6495475Z LTS
+2026-07-24T10:39:56.6496023Z ##[endgroup]
+2026-07-24T10:39:56.6496632Z ##[group]Runner Image
+2026-07-24T10:39:56.6497641Z Image: ubuntu-24.04
+2026-07-24T10:39:56.6498642Z Version: 20260720.247.2
+2026-07-24T10:39:56.6499996Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260720.247/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-24T10:39:56.6501611Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260720.247
+2026-07-24T10:39:56.6502858Z ##[endgroup]
+2026-07-24T10:39:56.6503997Z ##[group]GITHUB_TOKEN Permissions
+2026-07-24T10:39:56.6506163Z Contents: write
+2026-07-24T10:39:56.6507297Z Metadata: read
+2026-07-24T10:39:56.6508097Z ##[endgroup]
+2026-07-24T10:39:56.6510185Z Secret source: Actions
+2026-07-24T10:39:56.6511732Z Prepare workflow directory
+2026-07-24T10:39:56.6841894Z Prepare all required actions
+2026-07-24T10:39:56.6884870Z Getting action download info
+2026-07-24T10:39:56.8958069Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-07-24T10:39:57.1277705Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-07-24T10:39:57.2086025Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-07-24T10:39:57.4072702Z Complete job name: build
+2026-07-24T10:39:57.4932634Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-24T10:39:57.4941575Z ##[group]Run actions/checkout@v4
+2026-07-24T10:39:57.4942330Z with:
+2026-07-24T10:39:57.4942762Z   fetch-depth: 1
+2026-07-24T10:39:57.4943300Z   repository: ***/***
+2026-07-24T10:39:57.4947203Z   token: ***
+2026-07-24T10:39:57.4947656Z   ssh-strict: true
+2026-07-24T10:39:57.4948092Z   ssh-user: git
+2026-07-24T10:39:57.4948538Z   persist-credentials: true
+2026-07-24T10:39:57.4949019Z   clean: true
+2026-07-24T10:39:57.4949459Z   sparse-checkout-cone-mode: true
+2026-07-24T10:39:57.4949992Z   fetch-tags: false
+2026-07-24T10:39:57.4950447Z   show-progress: true
+2026-07-24T10:39:57.4950899Z   lfs: false
+2026-07-24T10:39:57.4951359Z   submodules: false
+2026-07-24T10:39:57.4951848Z   set-safe-directory: true
+2026-07-24T10:39:57.4952378Z   allow-unsafe-pr-checkout: false
+2026-07-24T10:39:57.4953166Z ##[endgroup]
+2026-07-24T10:39:57.5948944Z Syncing repository: ***/***
+2026-07-24T10:39:57.5951350Z ##[group]Getting Git version info
+2026-07-24T10:39:57.5952549Z Working directory is '/home/runner/work/***/***'
+2026-07-24T10:39:57.5954127Z [command]/usr/bin/git version
+2026-07-24T10:39:57.5992091Z git version 2.54.0
+2026-07-24T10:39:57.6045334Z ##[endgroup]
+2026-07-24T10:39:57.6079581Z Temporarily overriding HOME='/home/runner/work/_temp/33aa51c5-2f47-4d50-a0ee-db3148487c4f' before making global git config changes
+2026-07-24T10:39:57.6090478Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-24T10:39:57.6093400Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/***/***
+2026-07-24T10:39:57.6141315Z Deleting the contents of '/home/runner/work/***/***'
+2026-07-24T10:39:57.6146870Z ##[group]Initializing the repository
+2026-07-24T10:39:57.6153926Z [command]/usr/bin/git init /home/runner/work/***/***
+2026-07-24T10:39:57.6260837Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-24T10:39:57.6262714Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-24T10:39:57.6264401Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-24T10:39:57.6265708Z hint: call:
+2026-07-24T10:39:57.6266737Z hint:
+2026-07-24T10:39:57.6268097Z hint: 	git config --global init.defaultBranch <name>
+2026-07-24T10:39:57.6269284Z hint:
+2026-07-24T10:39:57.6270383Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-24T10:39:57.6272186Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-24T10:39:57.6273812Z hint:
+2026-07-24T10:39:57.6275026Z hint: 	git branch -m <name>
+2026-07-24T10:39:57.6276003Z hint:
+2026-07-24T10:39:57.6277664Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-24T10:39:57.6279712Z Initialized empty Git repository in /home/runner/work/***/***/.git/
+2026-07-24T10:39:57.6283097Z [command]/usr/bin/git remote add origin https://github.com/***/***
+2026-07-24T10:39:57.6318612Z ##[endgroup]
+2026-07-24T10:39:57.6319968Z ##[group]Disabling automatic garbage collection
+2026-07-24T10:39:57.6322922Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-24T10:39:57.6354460Z ##[endgroup]
+2026-07-24T10:39:57.6355740Z ##[group]Setting up auth
+2026-07-24T10:39:57.6361015Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-24T10:39:57.6418064Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-24T10:39:57.6866357Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-24T10:39:57.6930516Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-24T10:39:57.7207296Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-24T10:39:57.7243526Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-24T10:39:57.7480814Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-24T10:39:57.7527611Z ##[endgroup]
+2026-07-24T10:39:57.7536626Z ##[group]Fetching the repository
+2026-07-24T10:39:57.7538737Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5dc7fe020401992e101aa52e2dbbdf1016f82995:refs/remotes/origin/main
+2026-07-24T10:39:57.9272611Z From https://github.com/***/***
+2026-07-24T10:39:57.9274717Z  * [new ref]         5dc7fe020401992e101aa52e2dbbdf1016f82995 -> origin/main
+2026-07-24T10:39:57.9278904Z ##[endgroup]
+2026-07-24T10:39:57.9280370Z ##[group]Determining the checkout info
+2026-07-24T10:39:57.9281994Z ##[endgroup]
+2026-07-24T10:39:57.9282950Z [command]/usr/bin/git sparse-checkout disable
+2026-07-24T10:39:57.9311268Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-24T10:39:57.9349247Z ##[group]Checking out the ref
+2026-07-24T10:39:57.9355024Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-07-24T10:39:57.9422036Z Switched to a new branch 'main'
+2026-07-24T10:39:57.9426154Z branch 'main' set up to track 'origin/main'.
+2026-07-24T10:39:57.9431308Z ##[endgroup]
+2026-07-24T10:39:57.9473532Z [command]/usr/bin/git log -1 --format=%H
+2026-07-24T10:39:57.9501115Z 5dc7fe020401992e101aa52e2dbbdf1016f82995
+2026-07-24T10:39:57.9860211Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-24T10:39:57.9865965Z ##[group]Run actions/setup-python@v5
+2026-07-24T10:39:57.9867427Z with:
+2026-07-24T10:39:57.9868268Z   python-version: 3.11
+2026-07-24T10:39:57.9869215Z   check-latest: false
+2026-07-24T10:39:57.9878693Z   token: ***
+2026-07-24T10:39:57.9942741Z   update-environment: true
+2026-07-24T10:39:57.9943968Z   allow-prereleases: false
+2026-07-24T10:39:57.9945045Z   freethreaded: false
+2026-07-24T10:39:57.9945919Z ##[endgroup]
+2026-07-24T10:39:58.1300277Z ##[group]Installed versions
+2026-07-24T10:39:58.1393926Z (node:2319) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-24T10:39:58.1398497Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-24T10:39:58.1401459Z Successfully set up CPython (3.11.15)
+2026-07-24T10:39:58.1403773Z ##[endgroup]
+2026-07-24T10:39:58.2482223Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-24T10:39:58.2487227Z ##[group]Run actions/cache@v4
+2026-07-24T10:39:58.2488133Z with:
+2026-07-24T10:39:58.2488826Z   path: ~/.cache/pip
+2026-07-24T10:39:58.2490196Z   key: Linux-pip-655b2c2ba4d6d6382ac9fd8a05f72855716c60f3495f95868b8de83bae447dc1
+2026-07-24T10:39:58.2491803Z   restore-keys: Linux-pip-
+2026-07-24T10:39:58.2492719Z   enableCrossOsArchive: false
+2026-07-24T10:39:58.2493823Z   fail-on-cache-miss: false
+2026-07-24T10:39:58.2494716Z   lookup-only: false
+2026-07-24T10:39:58.2495505Z   save-always: false
+2026-07-24T10:39:58.2496394Z env:
+2026-07-24T10:39:58.2497570Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:39:58.2499279Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-07-24T10:39:58.2500894Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:39:58.2502620Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:39:58.2504313Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:39:58.2505808Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-07-24T10:39:58.2507473Z ##[endgroup]
+2026-07-24T10:39:58.3575585Z (node:2339) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-24T10:39:58.3581768Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-24T10:39:58.4221738Z Cache hit for: Linux-pip-655b2c2ba4d6d6382ac9fd8a05f72855716c60f3495f95868b8de83bae447dc1
+2026-07-24T10:39:58.4327467Z (node:2339) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-07-24T10:39:58.6628965Z Received 8584104 of 8584104 (100.0%), 43.3 MBs/sec
+2026-07-24T10:39:58.6630059Z Cache Size: ~8 MB (8584104 B)
+2026-07-24T10:39:58.6662230Z [command]/usr/bin/tar -xf /home/runner/work/_temp/79c96b5e-a176-42f2-8f31-8422faa04bc7/cache.tzst -P -C /home/runner/work/***/*** --use-compress-program unzstd
+2026-07-24T10:39:58.6895640Z Cache restored successfully
+2026-07-24T10:39:58.6983242Z Cache restored from key: Linux-pip-655b2c2ba4d6d6382ac9fd8a05f72855716c60f3495f95868b8de83bae447dc1
+2026-07-24T10:39:58.7113519Z ##[group]Run python -m pip install -r cache/requirements.txt
+2026-07-24T10:39:58.7114856Z [36;1mpython -m pip install -r cache/requirements.txt[0m
+2026-07-24T10:39:58.7168788Z shell: /usr/bin/bash -e {0}
+2026-07-24T10:39:58.7169450Z env:
+2026-07-24T10:39:58.7170264Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:39:58.7172184Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-07-24T10:39:58.7173906Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:39:58.7175026Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:39:58.7176357Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:39:58.7177920Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-07-24T10:39:58.7178874Z ##[endgroup]
+2026-07-24T10:39:59.5173618Z Collecting python-dateutil (from -r cache/requirements.txt (line 1))
+2026-07-24T10:39:59.5191218Z   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2026-07-24T10:39:59.5497975Z Collecting requests (from -r cache/requirements.txt (line 2))
+2026-07-24T10:39:59.6000961Z   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+2026-07-24T10:39:59.8056276Z Collecting lxml (from -r cache/requirements.txt (line 3))
+2026-07-24T10:39:59.8098879Z   Downloading lxml-6.1.1-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.5 kB)
+2026-07-24T10:39:59.8235331Z Collecting six>=1.5 (from python-dateutil->-r cache/requirements.txt (line 1))
+2026-07-24T10:39:59.8257124Z   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-07-24T10:39:59.9113774Z Collecting charset_normalizer<4,>=2 (from requests->-r cache/requirements.txt (line 2))
+2026-07-24T10:39:59.9162181Z   Downloading charset_normalizer-3.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (41 kB)
+2026-07-24T10:39:59.9415365Z Collecting idna<4,>=2.5 (from requests->-r cache/requirements.txt (line 2))
+2026-07-24T10:39:59.9453506Z   Downloading idna-3.18-py3-none-any.whl.metadata (6.1 kB)
+2026-07-24T10:39:59.9647303Z Collecting urllib3<3,>=1.26 (from requests->-r cache/requirements.txt (line 2))
+2026-07-24T10:39:59.9735824Z   Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+2026-07-24T10:39:59.9905915Z Collecting certifi>=2023.5.7 (from requests->-r cache/requirements.txt (line 2))
+2026-07-24T10:39:59.9943966Z   Downloading certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+2026-07-24T10:40:00.0004190Z Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2026-07-24T10:40:00.0045063Z Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-07-24T10:40:00.0133993Z Downloading charset_normalizer-3.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (221 kB)
+2026-07-24T10:40:00.0232745Z Downloading idna-3.18-py3-none-any.whl (65 kB)
+2026-07-24T10:40:00.0294394Z Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+2026-07-24T10:40:00.0363343Z Downloading lxml-6.1.1-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+2026-07-24T10:40:00.0924994Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 96.4 MB/s  0:00:00
+2026-07-24T10:40:00.0964707Z Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+2026-07-24T10:40:00.1002458Z Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-07-24T10:40:00.1381185Z Installing collected packages: urllib3, six, lxml, idna, charset_normalizer, certifi, requests, python-dateutil
+2026-07-24T10:40:00.4969908Z 
+2026-07-24T10:40:00.4981190Z Successfully installed certifi-2026.7.22 charset_normalizer-3.4.9 idna-3.18 lxml-6.1.1 python-dateutil-2.9.0.post0 requests-2.34.2 six-1.17.0 urllib3-2.7.0
+2026-07-24T10:40:00.5531275Z ##[group]Run python today.py
+2026-07-24T10:40:00.5531652Z [36;1mpython today.py[0m
+2026-07-24T10:40:00.5579614Z shell: /usr/bin/bash -e {0}
+2026-07-24T10:40:00.5579923Z env:
+2026-07-24T10:40:00.5580207Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:40:00.5580660Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib/pkgconfig
+2026-07-24T10:40:00.5581101Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:40:00.5581502Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:40:00.5581895Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.15/x64
+2026-07-24T10:40:00.5582296Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.15/x64/lib
+2026-07-24T10:40:00.5583384Z   ACCESS_TOKEN: ***
+2026-07-24T10:40:00.5585687Z   GITHUB_TOKEN: ***
+2026-07-24T10:40:00.5585930Z   USER_NAME: ***
+2026-07-24T10:40:00.5586137Z ##[endgroup]
+2026-07-24T10:40:10.0228910Z Traceback (most recent call last):
+2026-07-24T10:40:10.0238777Z   File "/home/runner/work/***/***/today.py", line 480, in <module>
+2026-07-24T10:40:10.0239468Z Calculation times:
+2026-07-24T10:40:10.0239832Z    account data:        119.5063 ms
+2026-07-24T10:40:10.0240606Z     star_data, star_time = perf_counter(graph_repos_stars, 'stars', ['OWNER'])
+2026-07-24T10:40:10.0241414Z                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-07-24T10:40:10.0242396Z   File "/home/runner/work/***/***/today.py", line 449, in perf_counter
+2026-07-24T10:40:10.0243028Z     funct_return = funct(*args)
+2026-07-24T10:40:10.0243435Z                    ^^^^^^^^^^^^
+2026-07-24T10:40:10.0244211Z   File "/home/runner/work/***/***/today.py", line 118, in graph_repos_stars
+2026-07-24T10:40:10.0245044Z     request = simple_request(graph_repos_stars.__name__, query, variables)
+2026-07-24T10:40:10.0245716Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-07-24T10:40:10.0246530Z   File "/home/runner/work/***/***/today.py", line 65, in simple_request
+2026-07-24T10:40:10.0247718Z     raise Exception(f"{func_name} GraphQL request failed with errors: {res_json['errors']}")
+2026-07-24T10:40:10.0259554Z Exception: graph_repos_stars GraphQL request failed with errors: [{'type': 'FORBIDDEN', 'path': ['user', 'repositories', 'edges', 2, 'node', 'stargazers'], 'extensions': {'saml_failure': False}, 'locations': [{'line': 10, 'column': 29}], 'message': 'Resource not accessible by personal access token'}, {'type': 'FORBIDDEN', 'path': ['user', 'repositories', 'edges', 3, 'node', 'stargazers'], 'extensions': {'saml_failure': False}, 'locations': [{'line': 10, 'column': 29}], 'message': 'Resource not accessible by personal access token'}, {'type': 'FORBIDDEN', 'path': ['user', 'repositories', 'edges', 4, 'node', 'stargazers'], 'extensions': {'saml_failure': False}, 'locations': [{'line': 10, 'column': 29}], 'message': 'Resource not accessible by personal access token'}, {'type': 'FORBIDDEN', 'path': ['user', 'repositories', 'edges', 5, 'node', 'stargazers'], 'extensions': {'saml_failure': False}, 'locations': [{'line': 10, 'column': 29}], 'message': 'Resource not accessible by personal access token'}, {'type': 'FORBIDDEN', 'path': ['user', 'repositories', 'edges', 6, 'node', 'stargazers'], 'extensions': {'saml_failure': False}, 'locations': [{'line': 10, 'column': 29}], 'message': 'Resource not accessible by personal access token'}, {'type': 'FORBIDDEN', 'path': ['user', 'repositories', 'edges', 7, 'node', 'stargazers'], 'extensions': {'saml_failure': False}, 'locations': [{'line': 10, 'column': 29}], 'message': 'Resource not accessible by personal access token'}, {'type': 'FORBIDDEN', 'path': ['user', 'repositories', 'edges', 8, 'node', 'stargazers'], 'extensions': {'saml_failure': False}, 'locations': [{'line': 10, 'column': 29}], 'message': 'Resource not accessible by personal access token'}, {'type': 'FORBIDDEN', 'path': ['user', 'repositories', 'edges', 9, 'node', 'stargazers'], 'extensions': {'saml_failure': False}, 'locations': [{'line': 10, 'column': 29}], 'message': 'Resource not accessible by personal access token'}, {'type': 'FORBIDDEN', 'path': ['user', 'repositories', 'edges', 10, 'node', 'stargazers'], 'extensions': {'saml_failure': False}, 'locations': [{'line': 10, 'column': 29}], 'message': 'Resource not accessible by personal access token'}]
+2026-07-24T10:40:10.0270010Z    age calculation:       0.0582 ms
+2026-07-24T10:40:10.0270414Z    LOC (cached):          8.6835 s 
+2026-07-24T10:40:10.0449329Z ##[error]Process completed with exit code 1.
+2026-07-24T10:40:10.0600249Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-24T10:40:10.0601682Z Post job cleanup.
+2026-07-24T10:40:10.1430010Z [command]/usr/bin/git version
+2026-07-24T10:40:10.1472622Z git version 2.54.0
+2026-07-24T10:40:10.1516390Z Temporarily overriding HOME='/home/runner/work/_temp/853711ed-cef7-4803-ba70-7e74d07b571d' before making global git config changes
+2026-07-24T10:40:10.1518437Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-24T10:40:10.1525339Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/***/***
+2026-07-24T10:40:10.1563812Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-24T10:40:10.1599744Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-24T10:40:10.1846776Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-24T10:40:10.1881299Z http.https://github.com/.extraheader
+2026-07-24T10:40:10.1895969Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-07-24T10:40:10.1934104Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-24T10:40:10.2191263Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-24T10:40:10.2236042Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-24T10:40:10.2648209Z Cleaning up orphan processes
+2026-07-24T10:40:10.2919846Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

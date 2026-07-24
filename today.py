@@ -61,7 +61,7 @@ def simple_request(func_name, query, variables):
 
     if request.status_code == 200:
         res_json = request.json()
-        if 'errors' in res_json:
+        if not res_json.get('data') and 'errors' in res_json:
             raise Exception(f"{func_name} GraphQL request failed with errors: {res_json['errors']}")
         return request
     raise Exception(func_name, ' has failed with a', request.status_code, request.text, QUERY_COUNT)
@@ -84,7 +84,10 @@ def graph_commits(start_date, end_date):
     }'''
     variables = {'start_date': start_date,'end_date': end_date, 'login': USER_NAME}
     request = simple_request(graph_commits.__name__, query, variables)
-    return int(request.json()['data']['user']['contributionsCollection']['contributionCalendar']['totalContributions'])
+    data = request.json().get('data')
+    if data and data.get('user') and data['user'].get('contributionsCollection'):
+        return int(data['user']['contributionsCollection']['contributionCalendar']['totalContributions'])
+    return 0
 
 
 def graph_repos_stars(count_type, owner_affiliation, cursor=None, add_loc=0, del_loc=0):
@@ -117,10 +120,13 @@ def graph_repos_stars(count_type, owner_affiliation, cursor=None, add_loc=0, del
     variables = {'owner_affiliation': owner_affiliation, 'login': USER_NAME, 'cursor': cursor}
     request = simple_request(graph_repos_stars.__name__, query, variables)
     if request.status_code == 200:
-        if count_type == 'repos':
-            return request.json()['data']['user']['repositories']['totalCount']
-        elif count_type == 'stars':
-            return stars_counter(request.json()['data']['user']['repositories']['edges'])
+        data = request.json().get('data')
+        if data and data.get('user') and data['user'].get('repositories'):
+            if count_type == 'repos':
+                return data['user']['repositories']['totalCount']
+            elif count_type == 'stars':
+                return stars_counter(data['user']['repositories']['edges'])
+    return 0
 
 
 def recursive_loc(owner, repo_name, data, cache_comment, addition_total=0, deletion_total=0, my_commits=0, cursor=None):
@@ -336,7 +342,10 @@ def stars_counter(data):
     Count total stars in repositories owned by me
     """
     total_stars = 0
-    for node in data: total_stars += node['node']['stargazers']['totalCount']
+    for node in data:
+        stargazers = node.get('node', {}).get('stargazers')
+        if stargazers and 'totalCount' in stargazers:
+            total_stars += stargazers['totalCount']
     return total_stars
 
 
