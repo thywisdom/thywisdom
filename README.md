@@ -34,9 +34,9 @@
   <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="1" width="5"/>
   <a href="https://open.spotify.com/user/dh10j81bq84ngqfwuvy72qdlb?si=b7e86b03afe04977">
     <picture>
-      <source srcset="https://raw.githubusercontent.com/zephardev/zephardev/main/assets/spotify.svg" width="48" height="48" alt="Spotify Logo" media="(prefers-color-scheme: dark)"/>
-      <source srcset="https://raw.githubusercontent.com/zephardev/zephardev/main/assets/spotify.svg" width="48" height="48" alt="Spotify Logo" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/>
-      <img src="https://raw.githubusercontent.com/zephardev/zephardev/main/assets/spotify.svg" width="48" height="48" alt="Spotify Logo"/>
+      <source srcset="https://raw.githubusercontent.com/thywisdom/thywisdom/main/spotify_dark.svg" width="48" height="48" alt="Spotify Logo" media="(prefers-color-scheme: dark)"/>
+      <source srcset="https://raw.githubusercontent.com/thywisdom/thywisdom/main/spotify_light.svg" width="48" height="48" alt="Spotify Logo" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"/>
+      <img src="https://raw.githubusercontent.com/thywisdom/thywisdom/main/spotify_light.svg" width="48" height="48" alt="Spotify Logo"/>
     </picture>
   </a>
 </div>
